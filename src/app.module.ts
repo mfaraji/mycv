@@ -6,6 +6,7 @@ import { UsersModule } from './users/users.module';
 import { ReportsModule } from './reports/reports.module';
 import { User } from './users/user.entity';
 import { Report } from './reports/report.entity';
+import { OpenaiModule } from './openai/openai.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { Report } from './reports/report.entity';
     }),
     UsersModule,
     ReportsModule,
+    OpenaiModule,
   ],
   controllers: [AppController],
   providers: [AppService],
