@@ -10,6 +10,7 @@ import {
     NotFoundException,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
+import { AuthService } from './auth.service';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
@@ -18,11 +19,14 @@ import { UserDto } from './dtos/user.dto';
 @Controller('auth')
 @Serialize(UserDto)
 export class UsersController {
-    constructor(private userService: UsersService) {}
+    constructor(
+        private userService: UsersService,
+        private authService: AuthService,
+    ) {}
 
     @Post('signup')
     createUser(@Body() body: CreateUserDto) {
-        return this.userService.create(body.email, body.password);
+        return this.authService.signUp(body.email, body.password);
     }
 
     @Get('/:id')
@@ -47,5 +51,10 @@ export class UsersController {
     @Patch('/:id')
     updateUser(@Param('id') id: string, @Body() body: UpdateUserDto) {
         return this.userService.update(parseInt(id), body);
+    }
+
+    @Post('/signin')
+    signIn(@Body() body: CreateUserDto) {
+        return this.authService.signIn(body.email, body.password);
     }
 }
