@@ -3,7 +3,7 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email": "test10@gmail.com",
+    "email": "test11@gmail.com",
     "password": "123456"
 }
 
@@ -13,14 +13,17 @@ Content-Type: application/json
 
 {
     "email": "test10@gmail.com",
-    "password": "12345612"
+    "password": "123456"
 }
 
+### User Signout
+POST http://localhost:3000/auth/signout
+
 ### User Fetch
-GET http://localhost:3000/auth/1
+GET http://localhost:3000/auth/10
 
 ### Query User
-GET http://localhost:3000/auth?email=test2@gmail.com
+GET http://localhost:3000/auth?email=test10@gmail.com
 
 ### Delete User
 DELETE http://localhost:3000/auth/2
