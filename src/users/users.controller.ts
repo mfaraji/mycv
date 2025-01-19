@@ -21,7 +21,6 @@ import { AuthGuard } from 'src/guards/auth.guard';
 
 @Controller('auth')
 @Serialize(UserDto)
-@UseGuards(AuthGuard)
 export class UsersController {
     constructor(
         private userService: UsersService,
@@ -40,6 +39,7 @@ export class UsersController {
         session.userId = null;
     }
 
+    @UseGuards(AuthGuard)
     @Get('/:id')
     async findUser(@Param('id') id: string) {
         const user = await this.userService.findOne(parseInt(id));
@@ -49,21 +49,25 @@ export class UsersController {
         return user;
     }
 
+    @UseGuards(AuthGuard)
     @Get()
     findAllusers(@Query('email') email: string) {
         return this.userService.find(email);
     }
 
+    @UseGuards(AuthGuard)
     @Delete('/:id')
     deleteUser(@Param('id') id: string) {
         return this.userService.remove(parseInt(id));
     }
 
+    @UseGuards(AuthGuard)
     @Patch('/:id')
     updateUser(@Param('id') id: string, @Body() body: UpdateUserDto) {
         return this.userService.update(parseInt(id), body);
     }
 
+    @UseGuards(AuthGuard)
     @Post('/signin')
     async signIn(@Body() body: CreateUserDto, @Session() session: any) {
         const user = await this.authService.signIn(body.email, body.password);
