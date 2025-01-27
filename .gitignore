@@ -1,6 +1,6 @@
 .env.development
 .env.test
-
+test.sqlite
 # compiled output
 /dist
 /node_modules
