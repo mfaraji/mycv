@@ -3,7 +3,7 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email": "test11@gmail.com",
+    "email": "test12@gmail.com",
     "password": "123456"
 }
 
@@ -12,13 +12,16 @@ POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
 {
-    "email": "test10@gmail.com",
+    "email": "test12@gmail.com",
     "password": "123456"
 }
 
 ### User Signout
 POST http://localhost:3000/auth/signout
 
+### whoami
+GET http://localhost:3000/auth/whoami
+Cookie: session=eyJ1c2VySWQiOjh9; path=/; httponly,session.sig=ARk1L1K7HUyuVyJ_B3hWdZIx7Ac; path=/; httponly
 ### User Fetch
 GET http://localhost:3000/auth/10
 
