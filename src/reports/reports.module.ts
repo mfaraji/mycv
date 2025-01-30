@@ -5,8 +5,8 @@ import { ReportsService } from './reports.service';
 import { Report } from './report.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Report])],
-  controllers: [ReportsController],
-  providers: [ReportsService],
+    imports: [TypeOrmModule.forFeature([Report])],
+    controllers: [ReportsController],
+    providers: [ReportsService],
 })
 export class ReportsModule {}
