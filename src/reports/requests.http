@@ -3,9 +3,9 @@ POST http://localhost:3000/reports
 Content-Type: application/json
 
 {
-    "make": "toyota",
-    "model": "corolla",
-    "year": 2015,
+    "make": "Hyundai",
+    "model": "Sonata",
+    "year": 2018,
     "price": 10000,
     "mileage": 50000,
     "lng": -122.084,

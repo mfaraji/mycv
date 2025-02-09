@@ -47,8 +47,7 @@ export class ReportsController {
 
     @Get('/')
     @UseGuards(AuthGuard)
-    getReports(@Query() query: GetEstimateDto) {
-        return 'asdasd';
-        // return this.reportsService.getAll();
+    getEstimates(@Query() query: GetEstimateDto) {
+        return this.reportsService.createEstimate(query);
     }
 }
