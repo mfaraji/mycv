@@ -21,6 +21,9 @@ export class User {
     @Column()
     password: string;
 
+    @Column({ default: () => 'CURRENT_TIMESTAMP' })
+    createdAt: Date;
+
     @AfterInsert()
     logInsert() {
         console.log('Inserted user with this id', this.id);
